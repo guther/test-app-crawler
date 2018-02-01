@@ -241,7 +241,8 @@ function fnc_wikipedia_extrair($marcador,$texto){
             $extrair_nomepai,
             $extrair_conjuge,
             $extrair_apelido,
-            $extrair_altura;
+            $extrair_altura,
+            $extrair_website;
 
     $prefixo = ["|","| ","|  "];
     for($i=0;$i<count($prefixo);$i++){ 
@@ -269,6 +270,8 @@ function fnc_wikipedia_extrair($marcador,$texto){
                     $retorno = fnc_wikipedia_format_apelido($retorno);
                 else if(in_array($marcador,$extrair_altura))
                     $retorno = fnc_wikipedia_format_altura($retorno);
+                else if(in_array($marcador,$extrair_website))
+                    $retorno = fnc_wikipedia_format_website($retorno);
                 
                 $retorno = str_replace(["[[","]]"]," ",$retorno);
             }
@@ -277,6 +280,13 @@ function fnc_wikipedia_extrair($marcador,$texto){
         }
     }
     return false;
+}
+
+function fnc_wikipedia_format_website($website){
+    $website = fnc_remover_citacao($website);
+    $website = str_replace(["{{small|","}}"],"",$website);
+
+    return $website;
 }
 
 function fnc_wikipedia_format_altura($altura){
@@ -449,7 +459,7 @@ function fnc_get_info_api_bing(){
 
     $accessKey = '38b857fe637a46c4a61af02aa55d0119';
 
-    $url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search?subscription-key=$accessKey&q=$nome_celeb";
+    $url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search?subscription-key=$accessKey&mkt=pt-BR&q=$nome_celeb";
 
     $json = fnc_curl($url);
     
