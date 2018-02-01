@@ -1,0 +1,267 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #888;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: #888;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: #888;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: #888;
+}
+placeholder { 
+	color: #888;
+}
+
+*{
+	transition: width 2s, height 2s, max-width 2s, max-height 2s;
+}
+
+#main {
+    border: 1px solid #000;
+    margin: auto;
+	max-width: 1920px;
+	font-family: "Roboto"
+}
+.header {
+	font-weight: bold;
+	text-align: center;
+	color: #008C8C;
+	font-size: 30px;
+	background-color: #C1FFFF;
+	border: 1px solid #008C8C;
+}
+.form {
+	max-width: 500px;
+	border-radius: 10px;
+	border: 2px solid #008C8C;
+	padding: 10px;
+	margin: 5px auto;
+	text-align: center;
+	position:relative;
+}
+.form > div {
+	font-size: 24px;
+}
+.clear{
+	clear:both;
+}
+#celeb {
+	width: 260px;
+	height: 30px;
+	font-size: 16px;
+	color:brown
+}
+#submit {
+	width: 130px;
+	height: 38px;
+	vertical-align: middle;
+	font-size: 16px;
+	padding: 0;
+}
+
+.content {
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	border: 1px solid #3c496d;
+	display: none;
+}
+
+#celebrity_nome_completo{
+	padding:10px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3c496d+1,2989d8+50,7db9e8+100 */
+	background: #3c496d; /* Old browsers */
+	background: -moz-linear-gradient(top, #3c496d 1%, #2989d8 50%, #7db9e8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #3c496d 1%,#2989d8 50%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #3c496d 1%,#2989d8 50%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c496d', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+	color: #fff;
+	font-size: 30px;
+}
+
+#celebrity_foto {
+	max-width: 400px;
+	max-height: 400px;
+}
+.foto {
+	float: left;
+	line-height: 0;
+}
+.container_dados {
+	background: #f0ffff;
+	width: 80%;
+	margin: auto;
+	text-align: left;
+}
+.label_info {
+	font-weight: bold;
+	margin-right: 10px;
+}
+#celebrity_info {
+	margin-left: 10px;
+	float: left;
+	margin-top: 60px;
+	max-width: 970px;
+}
+#celebrity_info > div,
+#celebrity_redes_sociais > div {
+	margin: 10px 0;
+}
+.noticia_imagem {
+	width: 100px;
+}
+.container_noticia_txt {
+	margin-left: 110px;
+	text-align: left;
+	padding-right: 5px;
+}
+.container_noticia_imagem {
+	float: left;
+}
+#celebrity_noticias_lista {
+	width: 80%;
+	margin: auto;
+}
+.last_news_title {
+	font-size: 30px;
+	font-weight: bold;
+	margin: 20px;
+}
+.container_noticia {
+	background-color: #fafafa;
+	margin-bottom: 5px;
+}
+.noticia_titulo {
+	margin: 5px 0;
+	font-size: 20px;
+}
+.desc_info {
+	/* margin-left: 10px; */
+	display: inline-block;
+	vertical-align: top;
+}
+.loading {
+	background-image: url('../img/ajax-load.gif');
+	height: 17px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: -50%;
+	left: 50%;
+	width: 300px;
+	margin-left: -150px;
+	display: none;
+}
+
+@media screen and (max-width: 1280px) {
+	
+	body{
+		background: blue;
+	}
+	.content{
+		width:90%;
+	}
+	.container_dados,
+	#celebrity_noticias_lista{
+		width:90%;
+	}
+	#celebrity_foto {
+		max-width: 264px;
+		max-height: 300px;
+	}
+	#celebrity_info {
+		width:520px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	
+	body{
+		background: red;
+	}
+
+	.content{
+		width:95%;
+	}
+	.container_dados,
+	#celebrity_noticias_lista{
+		width:95%;
+	}
+	#celebrity_info {
+		width:500px;
+	}
+}
+
+@media screen and (max-width: 880px) {
+	
+	body{
+		background: yellow;
+	}
+
+	.content{
+		width:95%;
+	}
+	.container_dados,
+	#celebrity_noticias_lista{
+		width:100%;
+	}
+	#celebrity_foto {
+		max-width: 200px;
+		max-height: 300px;
+	}
+	#celebrity_info {
+		margin-top: 30px;
+		width:455px;
+	}
+}
+
+@media screen and (max-width: 730px) {
+	body{
+		margin: 0;
+	}
+	.content{
+		width:98%;
+	}
+	#celebrity_info {
+		width:390px;
+	}
+}
+
+/*
+Vertical
+*/
+@media screen and (max-width: 614px) {
+	body{
+		background: orange;
+	}
+	.foto {
+		float: unset;
+		text-align: center;
+	}
+	#celebrity_info {
+		width: 100%;
+		margin: 0;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.form > div {
+		font-size: 18px;
+	}
+	#submit {
+		width: 80px;
+		height: 30px;
+		font-size: 12px;
+	}
+	#celeb {
+		height: 20px;
+		font-size: 16px;
+	}
+	.noticia_descricao {
+		display: none;
+	}
+}
