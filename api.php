@@ -493,7 +493,7 @@ function fnc_curl($url){
 }
 
 // obter informações da API do Google
-//fnc_get_info_api_google();
+fnc_get_info_api_google();
 
 //obter informações da API do Wikipedia
 $retorno = fnc_get_info_api_wikipedia();
