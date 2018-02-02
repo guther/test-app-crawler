@@ -3,6 +3,8 @@
 header("Cache-Control: no-cache, must-revalidate"); 
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
+//$_POST["nome"] = "David Assayag";
+
 // checa o envio da variável
 if(!isset($_POST["nome"])){
     exit;
@@ -507,7 +509,7 @@ function fnc_curl($url){
 }
 
 // obter informações da API do Google
-//fnc_get_info_api_google();
+fnc_get_info_api_google();
 
 //obter informações da API do Wikipedia
 $retorno = fnc_get_info_api_wikipedia();
