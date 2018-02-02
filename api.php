@@ -3,8 +3,6 @@
 header("Cache-Control: no-cache, must-revalidate"); 
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
-//$_POST["nome"] = "Roberto Carlos";
-
 // checa o envio da variável
 if(!isset($_POST["nome"])){
     exit;
@@ -60,9 +58,6 @@ function fnc_desambiguacao($txt){
         if(substr_count($linhas[$i],"[[")>0 && substr_count($linhas[$i],"]]")>0){
             $linhas[$i] = trim($linhas[$i]);
 
-            if($linhas[$i][0]!="*")
-                continue;
-
             preg_match('/\[\[(.*?)\]\]/', $linhas[$i], $match);
             $txt_link = $match[1];
             $linhas[$i] = str_replace("[[".$txt_link."]]","<a href='javascript:void(0)' onClick='fnc_remove_ambiguo(this)'>".$txt_link."</a>",$linhas[$i]);
@@ -102,8 +97,7 @@ function fnc_get_info_api_wikipedia($celeb=NULL){
         if(!isset($json->query->pages[0]->revisions) && isset($json->query->pages[0]->missing) && $json->query->pages[0]->missing==true){
             return "erro";
         }
-        elseif(isset($json->query->pages[0]->revisions) && strpos($json->query->pages[0]->revisions[0]->content,"{{desambiguação")!==false){
-           
+        elseif(isset($json->query->pages[0]->revisions) && fnc_possui_ambiguidade($json->query->pages[0]->revisions[0]->content) ){
             fnc_desambiguacao($json->query->pages[0]->revisions[0]->content);
             return "ambiguo";
         }
@@ -231,6 +225,16 @@ function fnc_get_info_api_wikipedia($celeb=NULL){
         echo "wikipedia não gerou json";
     }
    
+}
+
+function fnc_possui_ambiguidade($txt){
+    $textos = ["{{Ver desambig|","{{desambiguação"];
+    for($i=0;$i<count($textos);$i++){
+        if(strpos($txt,$textos[$i])==0 && strpos($txt,$textos[$i])!==false){
+            return true;
+        }
+    }
+    return false;
 }
 
 function fnc_wikipedia_extrair($marcador,$texto){
@@ -503,7 +507,7 @@ function fnc_curl($url){
 }
 
 // obter informações da API do Google
-fnc_get_info_api_google();
+//fnc_get_info_api_google();
 
 //obter informações da API do Wikipedia
 $retorno = fnc_get_info_api_wikipedia();
