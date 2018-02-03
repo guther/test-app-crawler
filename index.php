@@ -48,8 +48,12 @@
 			</div>
 			<div id="celebrity_noticias_lista"></div>
 		</div>
+
 		
 	</div>
+
+	<div align="center" style="opacity:0.1;position:absolute;bottom:0;left:50%;"><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-9aZ999Wc3C2BZ1bY-49.gif' border='0' alt='contador gratuito'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=9aZ999Wc3C2BZ1bY'></script></div>
+		
 	
 
 </body>
